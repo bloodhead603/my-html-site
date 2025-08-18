@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Star Leaderboard</title>
+    <title>Grade 5 Student Star Leaderboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -53,7 +53,7 @@
 
         h1 {
             font-family: 'Baloo 2', cursive;
-            font-size: 3.5rem;
+            font-size: 3rem;
             text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
             margin-bottom: 10px;
         }
@@ -193,9 +193,42 @@
             width: 50px;
         }
 
-        .rank-1 { color: #f1c40f; }
-        .rank-2 { color: #95a5a6; }
-        .rank-3 { color: #e67e22; }
+        .rank-1 { 
+            background: linear-gradient(to right, #f1c40f, #ffd700);
+            color: #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .rank-2 { 
+            background: linear-gradient(to right, #95a5a6, #bdc3c7);
+            color: #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .rank-3 { 
+            background: linear-gradient(to right, #e67e22, #d35400);
+            color: #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
 
         .student-name {
             font-weight: 700;
@@ -280,50 +313,6 @@
             transform: translateY(-2px);
         }
 
-        .auth-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .auth-title {
-            font-family: 'Baloo 2', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #3498db;
-        }
-
-        .google-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #4285F4;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-family: 'Comic Neue', cursive;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            margin-top: 15px;
-        }
-
-        .google-btn:hover {
-            background: #3367D6;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        .google-icon {
-            font-size: 1.5rem;
-        }
-
         .user-info {
             display: flex;
             align-items: center;
@@ -358,6 +347,56 @@
             margin-left: 8px;
         }
 
+        .student-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .student-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .student-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .girl .student-avatar {
+            background: #e84393;
+        }
+
+        .student-info {
+            flex-grow: 1;
+        }
+
+        .student-stars {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+
         @keyframes twinkle {
             0% { opacity: 0.5; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
@@ -389,7 +428,7 @@
             }
             
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .tab {
@@ -401,42 +440,46 @@
                 width: 60px;
                 padding: 6px;
             }
+            
+            .student-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Student Star Leaderboard</h1>
+            <h1>Grade 5 Student Star Leaderboard</h1>
             <div class="subtitle">Celebrating Excellence in Learning</div>
             
             <div class="user-info" id="user-info">
                 <div class="user-avatar" id="user-avatar">T</div>
                 <span id="user-name">Teacher</span>
-                <button class="logout-btn" id="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
             </div>
             
             <div class="stats">
                 <div class="stat-box">
-                    <i class="fas fa-chalkboard"></i> Active Class: <span id="active-class">Grade 1</span>
+                    <i class="fas fa-book"></i> Active Subject: <span id="active-subject">English</span>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-star"></i> Total Stars: <span id="total-stars">142</span>
                 </div>
                 <div class="stat-box">
-                    <i class="fas fa-crown"></i> Top Student: <span id="top-student">Emma (Grade 1)</span>
+                    <i class="fas fa-crown"></i> Top Student: <span id="top-student">DEHILO, ALDRIN LOMA</span>
                 </div>
             </div>
         </header>
         
         <div class="tabs">
-            <button class="tab active" data-class="grade1">Grade 1</button>
-            <button class="tab" data-class="grade2">Grade 2</button>
-            <button class="tab" data-class="grade3">Grade 3</button>
-            <button class="tab" data-class="grade4">Grade 4</button>
-            <button class="tab" data-class="grade5">Grade 5</button>
+            <button class="tab active" data-class="english">English</button>
+            <button class="tab" data-class="filipino">Filipino</button>
+            <button class="tab" data-class="mathematics">Mathematics</button>
+            <button class="tab" data-class="science">Science</button>
+            <button class="tab" data-class="aralingPanlipunan">Araling Panlipunan</button>
+            <button class="tab" data-class="epp">EPP</button>
+            <button class="tab" data-class="mapeh">MAPEH</button>
+            <button class="tab" data-class="gmrc">GMRC</button>
         </div>
         
         <div class="leaderboard-container">
@@ -457,85 +500,63 @@
             <div id="save-notice" class="save-notice">
                 <i class="fas fa-check-circle"></i> Progress saved successfully!
             </div>
-        </div>
-        
-        <div class="auth-section" id="auth-section">
-            <h2 class="auth-title">Welcome to Star Leaderboard</h2>
-            <p>Sign in with your school account to track student progress</p>
-            <button class="google-btn" id="google-login">
-                <i class="fab fa-google google-icon"></i>
-                Sign in with Google
-            </button>
+            
+            <h2 style="margin: 25px 0 15px; text-align: center; color: #3498db;">All Students</h2>
+            <div class="student-list" id="student-list">
+                <!-- Student cards will be populated by JavaScript -->
+            </div>
         </div>
     </div>
 
     <script>
-        // Sample student data
-        const studentsData = {
-            grade1: [
-                { id: 1, name: "Emma Johnson", gender: "girl", stars: 12 },
-                { id: 2, name: "Noah Williams", gender: "boy", stars: 10 },
-                { id: 3, name: "Olivia Brown", gender: "girl", stars: 8 },
-                { id: 4, name: "Liam Jones", gender: "boy", stars: 15 },
-                { id: 5, name: "Ava Garcia", gender: "girl", stars: 7 }
-            ],
-            grade2: [
-                { id: 6, name: "Isabella Martinez", gender: "girl", stars: 14 },
-                { id: 7, name: "Lucas Smith", gender: "boy", stars: 9 },
-                { id: 8, name: "Mia Davis", gender: "girl", stars: 11 },
-                { id: 9, name: "Ethan Rodriguez", gender: "boy", stars: 6 },
-                { id: 10, name: "Sophia Wilson", gender: "girl", stars: 13 }
-            ],
-            grade3: [
-                { id: 11, name: "Charlotte Taylor", gender: "girl", stars: 16 },
-                { id: 12, name: "Mason Anderson", gender: "boy", stars: 12 },
-                { id: 13, name: "Amelia Thomas", gender: "girl", stars: 9 },
-                { id: 14, name: "Logan Jackson", gender: "boy", stars: 18 },
-                { id: 15, name: "Harper White", gender: "girl", stars: 10 }
-            ],
-            grade4: [
-                { id: 16, name: "Evelyn Harris", gender: "girl", stars: 11 },
-                { id: 17, name: "Elijah Martin", gender: "boy", stars: 14 },
-                { id: 18, name: "Abigail Thompson", gender: "girl", stars: 7 },
-                { id: 19, name: "Carter Garcia", gender: "boy", stars: 13 },
-                { id: 20, name: "Emily Martinez", gender: "girl", stars: 15 }
-            ],
-            grade5: [
-                { id: 21, name: "James Robinson", gender: "boy", stars: 17 },
-                { id: 22, name: "Elizabeth Clark", gender: "girl", stars: 12 },
-                { id: 23, name: "Benjamin Rodriguez", gender: "boy", stars: 9 },
-                { id: 24, name: "Sofia Lewis", gender: "girl", stars: 14 },
-                { id: 25, name: "Daniel Lee", gender: "boy", stars: 11 }
-            ]
-        };
+        // All Grade 5 students
+        const allStudents = [
+            // Boys
+            { id: 1, name: "DEHILO, ALDRIN LOMA", gender: "boy", stars: 15 },
+            { id: 2, name: "LALUNA, JM SALAC", gender: "boy", stars: 12 },
+            { id: 3, name: "ONTEVEROS, PAUL SIDRICHE CALWIT", gender: "boy", stars: 14 },
+            { id: 4, name: "OPORTO, JULIMHARR MASONG", gender: "boy", stars: 10 },
+            { id: 5, name: "OPORTO, JULIREIGH MASONG", gender: "boy", stars: 8 },
+            { id: 6, name: "OPORTO, RAYMOND MASONG", gender: "boy", stars: 11 },
+            { id: 7, name: "PAGANDA, ERNEST GEOF DELACERNA", gender: "boy", stars: 13 },
+            { id: 8, name: "ROMANILLOS, JAYSON PARATAN", gender: "boy", stars: 9 },
+            { id: 9, name: "TABUSO, JERALD PARAGAS", gender: "boy", stars: 7 },
+            
+            // Girls
+            { id: 10, name: "ARCILLAS, JUDY ANN ABISO", gender: "girl", stars: 16 },
+            { id: 11, name: "ARMERO, ANNIE JOY VILLAVITO", gender: "girl", stars: 14 },
+            { id: 12, name: "BERJAME, SHAIRA JANE BARCELON", gender: "girl", stars: 12 },
+            { id: 13, name: "LLEDO, CHRISTEL FAITH MALOLOY-ON", gender: "girl", stars: 13 },
+            { id: 14, name: "MONTEALTO, MARCHELYN GULO", gender: "girl", stars: 11 },
+            { id: 15, name: "OBIDO, NOVIE JANE", gender: "girl", stars: 9 },
+            { id: 16, name: "REMASOG, WANEDHALLE FAITH ARMERO", gender: "girl", stars: 15 },
+            { id: 17, name: "REPDOS, MARJEL FATE NACION", gender: "girl", stars: 10 },
+            { id: 18, name: "SINADJAN, EVA SEPRYL GANUB", gender: "girl", stars: 17 },
+            { id: 19, name: "SINGSON, JAYNIEZELLE NICOLE AUSTRIA", gender: "girl", stars: 18 },
+            { id: 20, name: "VILLARUZ, PRINCESS MAE BERJAME", gender: "girl", stars: 19 }
+        ];
 
         // DOM elements
         const tabs = document.querySelectorAll('.tab');
         const leaderboardBody = document.getElementById('leaderboard-body');
-        const activeClassSpan = document.getElementById('active-class');
+        const activeSubjectSpan = document.getElementById('active-subject');
         const totalStarsSpan = document.getElementById('total-stars');
         const topStudentSpan = document.getElementById('top-student');
         const saveNotice = document.getElementById('save-notice');
-        const authSection = document.getElementById('auth-section');
-        const googleLoginBtn = document.getElementById('google-login');
-        const userInfo = document.getElementById('user-info');
-        const userName = document.getElementById('user-name');
-        const userAvatar = document.getElementById('user-avatar');
-        const logoutBtn = document.getElementById('logout-btn');
+        const studentList = document.getElementById('student-list');
 
-        let currentClass = 'grade1';
-        let isLoggedIn = false;
+        let currentSubject = 'english';
 
         // Initialize the application
         function init() {
-            // Hide user info initially
-            userInfo.style.display = 'none';
-            
             // Set up event listeners
             setupEventListeners();
             
             // Render the initial leaderboard
-            renderLeaderboard(currentClass);
+            renderLeaderboard(currentSubject);
+            
+            // Render student cards
+            renderStudentCards();
         }
 
         // Set up event listeners
@@ -549,34 +570,25 @@
                     // Add active class to clicked tab
                     tab.classList.add('active');
                     
-                    // Update current class
-                    currentClass = tab.getAttribute('data-class');
+                    // Update current subject
+                    currentSubject = tab.getAttribute('data-class');
                     
                     // Render the new leaderboard
-                    renderLeaderboard(currentClass);
+                    renderLeaderboard(currentSubject);
                 });
             });
-            
-            // Google login button
-            googleLoginBtn.addEventListener('click', loginWithGoogle);
-            
-            // Logout button
-            logoutBtn.addEventListener('click', logout);
         }
 
-        // Render the leaderboard for a specific class
-        function renderLeaderboard(className) {
+        // Render the leaderboard for a specific subject
+        function renderLeaderboard(subject) {
             // Clear the current leaderboard
             leaderboardBody.innerHTML = '';
             
-            // Get students for this class
-            const students = studentsData[className];
-            
-            // Sort students by stars (descending)
-            const sortedStudents = [...students].sort((a, b) => b.stars - a.stars);
+            // Get students sorted by stars
+            const sortedStudents = [...allStudents].sort((a, b) => b.stars - a.stars);
             
             // Update header stats
-            updateHeaderStats(sortedStudents, className);
+            updateHeaderStats(sortedStudents, subject);
             
             // Create rows for each student
             sortedStudents.forEach((student, index) => {
@@ -659,10 +671,55 @@
             });
         }
 
+        // Render student cards
+        function renderStudentCards() {
+            studentList.innerHTML = '';
+            
+            allStudents.forEach(student => {
+                const card = document.createElement('div');
+                card.classList.add('student-card', student.gender);
+                
+                const avatar = document.createElement('div');
+                avatar.classList.add('student-avatar');
+                avatar.textContent = student.name.charAt(0);
+                
+                const info = document.createElement('div');
+                info.classList.add('student-info');
+                
+                const name = document.createElement('div');
+                name.classList.add('student-name');
+                name.textContent = student.name;
+                
+                const stars = document.createElement('div');
+                stars.classList.add('student-stars');
+                stars.innerHTML = `<i class="fas fa-star"></i> ${student.stars} Stars`;
+                
+                info.appendChild(name);
+                info.appendChild(stars);
+                
+                card.appendChild(avatar);
+                card.appendChild(info);
+                
+                studentList.appendChild(card);
+            });
+        }
+
         // Update header statistics
-        function updateHeaderStats(students, className) {
-            // Update active class display
-            activeClassSpan.textContent = className.charAt(0).toUpperCase() + className.slice(1).replace('grade', 'Grade ');
+        function updateHeaderStats(students, subject) {
+            // Format subject name
+            const subjectNames = {
+                english: "English",
+                filipino: "Filipino",
+                mathematics: "Mathematics",
+                science: "Science",
+                aralingPanlipunan: "Araling Panlipunan",
+                epp: "EPP",
+                mapeh: "MAPEH",
+                gmrc: "GMRC"
+            };
+            
+            // Update active subject display
+            activeSubjectSpan.textContent = subjectNames[subject];
             
             // Calculate total stars
             const totalStars = students.reduce((total, student) => total + student.stars, 0);
@@ -671,26 +728,24 @@
             // Get top student
             const topStudent = students[0];
             if (topStudent) {
-                topStudentSpan.textContent = `${topStudent.name} (${className.charAt(0).toUpperCase() + className.slice(1).replace('grade', 'Grade ')})`;
+                topStudentSpan.textContent = topStudent.name;
             }
         }
 
         // Add stars to a student
         function addStars(studentId, stars) {
-            // Find the student in all classes
-            for (const className in studentsData) {
-                const student = studentsData[className].find(s => s.id === studentId);
-                if (student) {
-                    student.stars += stars;
-                    break;
-                }
+            // Find the student
+            const student = allStudents.find(s => s.id === studentId);
+            if (student) {
+                student.stars += stars;
+                
+                // Re-render the leaderboard and cards
+                renderLeaderboard(currentSubject);
+                renderStudentCards();
+                
+                // Show save notice
+                showSaveNotice();
             }
-            
-            // Re-render the current leaderboard
-            renderLeaderboard(currentClass);
-            
-            // Show save notice
-            showSaveNotice();
         }
 
         // Show save notification
@@ -698,62 +753,6 @@
             saveNotice.style.display = 'block';
             setTimeout(() => {
                 saveNotice.style.display = 'none';
-            }, 3000);
-        }
-
-        // Login with Google
-        function loginWithGoogle() {
-            // Simulate login process
-            isLoggedIn = true;
-            
-            // Hide auth section
-            authSection.style.display = 'none';
-            
-            // Show user info
-            userInfo.style.display = 'flex';
-            
-            // Set user info
-            userName.textContent = "Teacher Smith";
-            userAvatar.textContent = "T";
-            
-            // Show a login success message
-            const notice = document.createElement('div');
-            notice.className = 'save-notice';
-            notice.style.position = 'fixed';
-            notice.style.top = '20px';
-            notice.style.left = '50%';
-            notice.style.transform = 'translateX(-50%)';
-            notice.innerHTML = '<i class="fas fa-check-circle"></i> Successfully logged in!';
-            document.body.appendChild(notice);
-            
-            setTimeout(() => {
-                notice.remove();
-            }, 3000);
-        }
-
-        // Logout
-        function logout() {
-            isLoggedIn = false;
-            
-            // Show auth section
-            authSection.style.display = 'block';
-            
-            // Hide user info
-            userInfo.style.display = 'none';
-            
-            // Show a logout message
-            const notice = document.createElement('div');
-            notice.className = 'save-notice';
-            notice.style.position = 'fixed';
-            notice.style.top = '20px';
-            notice.style.left = '50%';
-            notice.style.transform = 'translateX(-50%)';
-            notice.style.background = '#3498db';
-            notice.innerHTML = '<i class="fas fa-info-circle"></i> Successfully logged out!';
-            document.body.appendChild(notice);
-            
-            setTimeout(() => {
-                notice.remove();
             }, 3000);
         }
 
