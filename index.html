@@ -70,6 +70,7 @@
             gap: 30px;
             margin-top: 15px;
             font-size: 1.1rem;
+            flex-wrap: wrap;
         }
 
         .stat-box {
@@ -77,6 +78,7 @@
             padding: 10px 20px;
             border-radius: 50px;
             backdrop-filter: blur(5px);
+            min-width: 220px;
         }
 
         .tabs {
@@ -232,8 +234,8 @@
         }
 
         .points-input {
-            width: 50px;
-            padding: 8px;
+            width: 70px;
+            padding: 8px 12px;
             border: 2px solid #3498db;
             border-radius: 8px;
             text-align: center;
@@ -260,94 +262,144 @@
             animation: fadeInOut 3s ease;
         }
 
-        @keyframes twinkle {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(10px); }
-            20% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-10px); }
-        }
-
-        .medal {
-            display: inline-block;
-            margin-left: 10px;
-            font-size: 1.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 12px 25px;
+        .add-stars-btn {
             background: #2ecc71;
             color: white;
             border: none;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .add-stars-btn:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        .auth-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .auth-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .google-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #4285F4;
+            color: white;
+            padding: 12px 25px;
             border-radius: 50px;
             font-family: 'Comic Neue', cursive;
             font-weight: 700;
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: none;
+            margin-top: 15px;
         }
 
-        .btn:hover {
+        .google-btn:hover {
+            background: #3367D6;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .btn.reset {
-            background: #e74c3c;
+        .google-icon {
+            font-size: 1.5rem;
         }
 
-        /* Style for the edit name button */
-        .edit-name-btn {
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1c40f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logout-btn {
             background: none;
             border: none;
-            color: #3498db;
+            color: white;
             cursor: pointer;
-            font-size: 1rem;
-            margin-left: 10px;
-            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            margin-left: 8px;
         }
 
-        .edit-name-btn:hover {
-            color: #e74c3c;
+        @keyframes twinkle {
+            0% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.5; transform: scale(1); }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(20px); }
         }
 
         @media (max-width: 768px) {
-            .tabs {
+            .stats {
                 flex-direction: column;
                 align-items: center;
+                gap: 10px;
             }
             
-            .tab {
+            .stat-box {
                 width: 100%;
                 max-width: 300px;
             }
             
-            table {
-                font-size: 0.9rem;
+            th, td {
+                padding: 10px 8px;
+                font-size: 1rem;
             }
             
-            td, th {
-                padding: 10px;
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tab {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+            
+            .points-input {
+                width: 60px;
+                padding: 6px;
             }
         }
     </style>
@@ -355,344 +407,358 @@
 <body>
     <div class="container">
         <header>
-            <h1>🌟 Student Star Leaderboard 🌟</h1>
-            <div class="subtitle">Track your achievements across all subjects!</div>
+            <h1>Student Star Leaderboard</h1>
+            <div class="subtitle">Celebrating Excellence in Learning</div>
+            
+            <div class="user-info" id="user-info">
+                <div class="user-avatar" id="user-avatar">T</div>
+                <span id="user-name">Teacher</span>
+                <button class="logout-btn" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+            
             <div class="stats">
-                <div class="stat-box">👦 9 Boys</div>
-                <div class="stat-box">👧 11 Girls</div>
-                <div class="stat-box">📚 8 Subjects</div>
+                <div class="stat-box">
+                    <i class="fas fa-chalkboard"></i> Active Class: <span id="active-class">Grade 1</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-star"></i> Total Stars: <span id="total-stars">142</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-crown"></i> Top Student: <span id="top-student">Emma (Grade 1)</span>
+                </div>
             </div>
         </header>
         
         <div class="tabs">
-            <button class="tab active" onclick="showTab('overall')">Overall</button>
-            <button class="tab" onclick="showTab('english')">English</button>
-            <button class="tab" onclick="showTab('filipino')">Filipino</button>
-            <button class="tab" onclick="showTab('math')">Mathematics</button>
-            <button class="tab" onclick="showTab('science')">Science</button>
-            <button class="tab" onclick="showTab('epp')">EPP</button>
-            <button class="tab" onclick="showTab('ap')">Araling Panlipunan</button>
-            <button class="tab" onclick="showTab('mapeh')">MAPEH</button>
-            <button class="tab" onclick="showTab('gmrc')">GMRC</button>
+            <button class="tab active" data-class="grade1">Grade 1</button>
+            <button class="tab" data-class="grade2">Grade 2</button>
+            <button class="tab" data-class="grade3">Grade 3</button>
+            <button class="tab" data-class="grade4">Grade 4</button>
+            <button class="tab" data-class="grade5">Grade 5</button>
         </div>
         
         <div class="leaderboard-container">
-            <div id="leaderboard-title" class="title">Overall Leaderboard</div>
-            <table id="leaderboard-table">
+            <table>
                 <thead>
                     <tr>
-                        <th style="width: 60px;">Rank</th>
-                        <th>Student</th>
+                        <th>Rank</th>
+                        <th>Student Name</th>
                         <th>Stars</th>
+                        <th>Add Stars</th>
                     </tr>
                 </thead>
                 <tbody id="leaderboard-body">
-                    <!-- Leaderboard rows will be inserted here -->
+                    <!-- Student rows will be populated by JavaScript -->
                 </tbody>
             </table>
+            
+            <div id="save-notice" class="save-notice">
+                <i class="fas fa-check-circle"></i> Progress saved successfully!
+            </div>
         </div>
         
-        <div id="save-notice" class="save-notice">
-            <i class="fas fa-check-circle"></i> Progress saved successfully!
-        </div>
-        
-        <div class="controls">
-            <button class="btn" onclick="saveData()">
-                <i class="fas fa-save"></i> Save Progress
+        <div class="auth-section" id="auth-section">
+            <h2 class="auth-title">Welcome to Star Leaderboard</h2>
+            <p>Sign in with your school account to track student progress</p>
+            <button class="google-btn" id="google-login">
+                <i class="fab fa-google google-icon"></i>
+                Sign in with Google
             </button>
-            <button class="btn reset" onclick="resetData()">
-                <i class="fas fa-redo"></i> Reset Leaderboard
-            </button>
         </div>
-        
-        <footer>
-            <p>⭐ Stars are automatically saved as you edit them ⭐</p>
-            <p>© 2025 Grade 5 Star Leaderboard | Sir Bon Pogi</p>
-        </footer>
     </div>
 
     <script>
-        // Student data
-        const students = [
-            { id: 1, name: "Alex Cruz", gender: "boy", subjects: { english: 3, filipino: 4, math: 5, science: 4, epp: 3, ap: 4, mapeh: 5, gmrc: 5 } },
-            { id: 2, name: "Bianca Reyes", gender: "girl", subjects: { english: 5, filipino: 5, math: 4, science: 5, epp: 4, ap: 5, mapeh: 4, gmrc: 5 } },
-            { id: 3, name: "Carlo Santos", gender: "boy", subjects: { english: 4, filipino: 3, math: 5, science: 4, epp: 5, ap: 3, mapeh: 4, gmrc: 4 } },
-            { id: 4, name: "Diana Lim", gender: "girl", subjects: { english: 5, filipino: 4, math: 4, science: 5, epp: 4, ap: 5, mapeh: 5, gmrc: 5 } },
-            { id: 5, name: "Eduardo Gomez", gender: "boy", subjects: { english: 3, filipino: 4, math: 3, science: 4, epp: 5, ap: 4, mapeh: 3, gmrc: 4 } },
-            { id: 6, name: "Fatima Torres", gender: "girl", subjects: { english: 4, filipino: 5, math: 4, science: 5, epp: 4, ap: 5, mapeh: 4, gmrc: 5 } },
-            { id: 7, name: "Gabriel Ramos", gender: "boy", subjects: { english: 5, filipino: 4, math: 5, science: 4, epp: 3, ap: 4, mapeh: 5, gmrc: 4 } },
-            { id: 8, name: "Hannah Dela Cruz", gender: "girl", subjects: { english: 4, filipino: 5, math: 4, science: 5, epp: 5, ap: 4, mapeh: 4, gmrc: 5 } },
-            { id: 9, name: "Ian Mendoza", gender: "boy", subjects: { english: 3, filipino: 3, math: 4, science: 3, epp: 4, ap: 3, mapeh: 4, gmrc: 3 } },
-            { id: 10, name: "Jasmine Garcia", gender: "girl", subjects: { english: 5, filipino: 5, math: 5, science: 5, epp: 5, ap: 5, mapeh: 5, gmrc: 5 } },
-            { id: 11, name: "Kevin Tan", gender: "boy", subjects: { english: 4, filipino: 4, math: 3, science: 4, epp: 4, ap: 4, mapeh: 3, gmrc: 4 } },
-            { id: 12, name: "Liza Fernandez", gender: "girl", subjects: { english: 4, filipino: 4, math: 4, science: 4, epp: 4, ap: 4, mapeh: 4, gmrc: 4 } },
-            { id: 13, name: "Miguel Lopez", gender: "boy", subjects: { english: 5, filipino: 4, math: 5, science: 5, epp: 4, ap: 4, mapeh: 5, gmrc: 5 } },
-            { id: 14, name: "Nina Rivera", gender: "girl", subjects: { english: 4, filipino: 5, math: 4, science: 4, epp: 5, ap: 5, mapeh: 4, gmrc: 5 } },
-            { id: 15, name: "Omar Chavez", gender: "boy", subjects: { english: 3, filipino: 3, math: 4, science: 3, epp: 4, ap: 3, mapeh: 4, gmrc: 3 } },
-            { id: 16, name: "Patricia Ong", gender: "girl", subjects: { english: 5, filipino: 5, math: 5, science: 5, epp: 4, ap: 5, mapeh: 5, gmrc: 5 } },
-            { id: 17, name: "Quincy Castro", gender: "boy", subjects: { english: 4, filipino: 4, math: 5, science: 4, epp: 5, ap: 4, mapeh: 4, gmrc: 4 } },
-            { id: 18, name: "Rosa Diaz", gender: "girl", subjects: { english: 4, filipino: 4, math: 3, science: 4, epp: 4, ap: 4, mapeh: 4, gmrc: 4 } },
-            { id: 19, name: "Samuel Yu", gender: "boy", subjects: { english: 5, filipino: 4, math: 5, science: 5, epp: 4, ap: 5, mapeh: 5, gmrc: 5 } },
-            { id: 20, name: "Tina Navarro", gender: "girl", subjects: { english: 4, filipino: 5, math: 4, science: 4, epp: 5, ap: 4, mapeh: 4, gmrc: 5 } }
-        ];
+        // Sample student data
+        const studentsData = {
+            grade1: [
+                { id: 1, name: "Emma Johnson", gender: "girl", stars: 12 },
+                { id: 2, name: "Noah Williams", gender: "boy", stars: 10 },
+                { id: 3, name: "Olivia Brown", gender: "girl", stars: 8 },
+                { id: 4, name: "Liam Jones", gender: "boy", stars: 15 },
+                { id: 5, name: "Ava Garcia", gender: "girl", stars: 7 }
+            ],
+            grade2: [
+                { id: 6, name: "Isabella Martinez", gender: "girl", stars: 14 },
+                { id: 7, name: "Lucas Smith", gender: "boy", stars: 9 },
+                { id: 8, name: "Mia Davis", gender: "girl", stars: 11 },
+                { id: 9, name: "Ethan Rodriguez", gender: "boy", stars: 6 },
+                { id: 10, name: "Sophia Wilson", gender: "girl", stars: 13 }
+            ],
+            grade3: [
+                { id: 11, name: "Charlotte Taylor", gender: "girl", stars: 16 },
+                { id: 12, name: "Mason Anderson", gender: "boy", stars: 12 },
+                { id: 13, name: "Amelia Thomas", gender: "girl", stars: 9 },
+                { id: 14, name: "Logan Jackson", gender: "boy", stars: 18 },
+                { id: 15, name: "Harper White", gender: "girl", stars: 10 }
+            ],
+            grade4: [
+                { id: 16, name: "Evelyn Harris", gender: "girl", stars: 11 },
+                { id: 17, name: "Elijah Martin", gender: "boy", stars: 14 },
+                { id: 18, name: "Abigail Thompson", gender: "girl", stars: 7 },
+                { id: 19, name: "Carter Garcia", gender: "boy", stars: 13 },
+                { id: 20, name: "Emily Martinez", gender: "girl", stars: 15 }
+            ],
+            grade5: [
+                { id: 21, name: "James Robinson", gender: "boy", stars: 17 },
+                { id: 22, name: "Elizabeth Clark", gender: "girl", stars: 12 },
+                { id: 23, name: "Benjamin Rodriguez", gender: "boy", stars: 9 },
+                { id: 24, name: "Sofia Lewis", gender: "girl", stars: 14 },
+                { id: 25, name: "Daniel Lee", gender: "boy", stars: 11 }
+            ]
+        };
 
         // DOM elements
-        const leaderboardTitle = document.getElementById('leaderboard-title');
-        const leaderboardBody = document.getElementById('leaderboard-body');
-        const saveNotice = document.getElementById('save-notice');
         const tabs = document.querySelectorAll('.tab');
-        
-        // Current active tab
-        let currentTab = 'overall';
-        
-        // Initialize the leaderboard
-        function initLeaderboard() {
-            // Try to load saved data from localStorage
-            const savedData = localStorage.getItem('studentLeaderboardData');
-            if (savedData) {
-                const parsedData = JSON.parse(savedData);
-                // Replace the default students array with the saved data
-                students.length = 0; // Clear the original array
-                students.push(...parsedData); // Populate with saved data
-            }
+        const leaderboardBody = document.getElementById('leaderboard-body');
+        const activeClassSpan = document.getElementById('active-class');
+        const totalStarsSpan = document.getElementById('total-stars');
+        const topStudentSpan = document.getElementById('top-student');
+        const saveNotice = document.getElementById('save-notice');
+        const authSection = document.getElementById('auth-section');
+        const googleLoginBtn = document.getElementById('google-login');
+        const userInfo = document.getElementById('user-info');
+        const userName = document.getElementById('user-name');
+        const userAvatar = document.getElementById('user-avatar');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        let currentClass = 'grade1';
+        let isLoggedIn = false;
+
+        // Initialize the application
+        function init() {
+            // Hide user info initially
+            userInfo.style.display = 'none';
+            
+            // Set up event listeners
+            setupEventListeners();
             
             // Render the initial leaderboard
-            renderLeaderboard(currentTab);
+            renderLeaderboard(currentClass);
         }
-        
-        // Show the selected tab
-        function showTab(tabName) {
-            currentTab = tabName;
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Tab switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Update current class
+                    currentClass = tab.getAttribute('data-class');
+                    
+                    // Render the new leaderboard
+                    renderLeaderboard(currentClass);
+                });
+            });
             
-            // Update active tab
-            tabs.forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
+            // Google login button
+            googleLoginBtn.addEventListener('click', loginWithGoogle);
             
-            // Update title
-            const titles = {
-                'overall': 'Overall Leaderboard',
-                'english': 'English Stars',
-                'filipino': 'Filipino Stars',
-                'math': 'Mathematics Stars',
-                'science': 'Science Stars',
-                'epp': 'EPP Stars',
-                'ap': 'Araling Panlipunan Stars',
-                'mapeh': 'MAPEH Stars',
-                'gmrc': 'GMRC Stars'
-            };
-            leaderboardTitle.textContent = titles[tabName];
-            
-            // Render the leaderboard
-            renderLeaderboard(tabName);
+            // Logout button
+            logoutBtn.addEventListener('click', logout);
         }
-        
-        // Render the leaderboard for a specific subject or overall
-        function renderLeaderboard(tabName) {
-            // Clear the table body
+
+        // Render the leaderboard for a specific class
+        function renderLeaderboard(className) {
+            // Clear the current leaderboard
             leaderboardBody.innerHTML = '';
             
-            // Prepare student data for this view
-            let displayStudents = [...students];
+            // Get students for this class
+            const students = studentsData[className];
             
-            if (tabName === 'overall') {
-                // Calculate total stars for each student
-                displayStudents.forEach(student => {
-                    student.totalStars = Object.values(student.subjects).reduce((sum, stars) => sum + stars, 0);
-                });
-                
-                // Sort by total stars (descending)
-                displayStudents.sort((a, b) => b.totalStars - a.totalStars);
-                
-                // Generate rows
-                displayStudents.forEach((student, index) => {
-                    const row = document.createElement('tr');
-                    const rankClass = index === 0 ? 'rank-1' : index === 1 ? 'rank-2' : index === 2 ? 'rank-3' : '';
-                    
-                    // Update the leaderboard rows to include an edit button for names and gender
-                    row.innerHTML = `
-                        <td class="rank ${rankClass}">${index + 1}</td>
-                        <td>
-                            <div class="${student.gender}">
-                                <span class="gender-icon">${student.gender === 'boy' ? '👦' : '👧'}</span>
-                                <span class="student-name">${student.name}</span>
-                                <button class="edit-name-btn" onclick="editNameAndGender(${student.id})" title="Edit Name and Gender">
-                                    ✏️
-                                </button>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="stars">
-                                ${'★'.repeat(student.totalStars)}
-                                <span class="total">(${student.totalStars})</span>
-                            </div>
-                        </td>
-                    `;
-                    
-                    leaderboardBody.appendChild(row);
-                });
-            } else {
-                // Sort by stars in this subject (descending)
-                displayStudents.sort((a, b) => b.subjects[tabName] - a.subjects[tabName]);
-                
-                // Generate rows
-                displayStudents.forEach((student, index) => {
-                    const row = document.createElement('tr');
-                    const rankClass = index === 0 ? 'rank-1' : index === 1 ? 'rank-2' : index === 2 ? 'rank-3' : '';
-                    
-                    row.innerHTML = `
-                        <td class="rank ${rankClass}">${index + 1}</td>
-                        <td>
-                            <div class="${student.gender}">
-                                <span class="gender-icon">${student.gender === 'boy' ? '👦' : '👧'}</span>
-                                <span class="student-name">${student.name}</span>
-                            </div>
-                        </td>
-                        <td>
-                            <input type="number" 
-                                   min="0" 
-                                   max="10" 
-                                   class="points-input" 
-                                   value="${student.subjects[tabName]}" 
-                                   onchange="updatePoints(${student.id}, '${tabName}', this.value)"
-                                   data-student="${student.id}"
-                                   data-subject="${tabName}">
-                            <div class="stars">${'★'.repeat(student.subjects[tabName])}</div>
-                        </td>
-                    `;
-                    
-                    leaderboardBody.appendChild(row);
-                });
-            }
-        }
-        
-        // Update points for a student in a subject
-        function updatePoints(studentId, subject, newValue) {
-            // Validate input
-            let points = parseInt(newValue);
-            if (isNaN(points) || points < 0) points = 0;
-            if (points > 10) points = 10;
+            // Sort students by stars (descending)
+            const sortedStudents = [...students].sort((a, b) => b.stars - a.stars);
             
-            // Find the student and update their points
-            const student = students.find(s => s.id === studentId);
-            if (student) {
-                student.subjects[subject] = points;
+            // Update header stats
+            updateHeaderStats(sortedStudents, className);
+            
+            // Create rows for each student
+            sortedStudents.forEach((student, index) => {
+                const row = document.createElement('tr');
+                row.classList.add(student.gender);
                 
-                // Update the input field to ensure it reflects validated value
-                const input = document.querySelector(`.points-input[data-student="${studentId}"][data-subject="${subject}"]`);
-                if (input) input.value = points;
+                // Rank cell
+                const rankCell = document.createElement('td');
+                rankCell.classList.add('rank');
+                if (index === 0) rankCell.classList.add('rank-1');
+                else if (index === 1) rankCell.classList.add('rank-2');
+                else if (index === 2) rankCell.classList.add('rank-3');
+                rankCell.textContent = index + 1;
                 
-                // Save data immediately
-                saveData();
+                // Name cell
+                const nameCell = document.createElement('td');
+                nameCell.classList.add('student-name');
+                
+                const genderIcon = document.createElement('span');
+                genderIcon.classList.add('gender-icon');
+                genderIcon.innerHTML = student.gender === 'boy' ? 
+                    '<i class="fas fa-mars"></i>' : 
+                    '<i class="fas fa-venus"></i>';
+                
+                nameCell.appendChild(genderIcon);
+                nameCell.appendChild(document.createTextNode(student.name));
+                
+                // Stars cell
+                const starsCell = document.createElement('td');
+                starsCell.classList.add('stars');
+                
+                // Add star icons
+                for (let i = 0; i < student.stars; i++) {
+                    const starIcon = document.createElement('i');
+                    starIcon.classList.add('fas', 'fa-star', 'star');
+                    starsCell.appendChild(starIcon);
+                }
+                
+                // Add star count text
+                const starCount = document.createElement('span');
+                starCount.textContent = ` (${student.stars})`;
+                starsCell.appendChild(starCount);
+                
+                // Add stars cell
+                const addStarsCell = document.createElement('td');
+                
+                const inputGroup = document.createElement('div');
+                inputGroup.style.display = 'flex';
+                inputGroup.style.alignItems = 'center';
+                
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.min = '1';
+                input.max = '5';
+                input.value = '1';
+                input.classList.add('points-input');
+                
+                const button = document.createElement('button');
+                button.classList.add('add-stars-btn');
+                button.innerHTML = '<i class="fas fa-plus"></i> Add';
+                
+                // Add event listener to the button
+                button.addEventListener('click', () => {
+                    const starsToAdd = parseInt(input.value) || 1;
+                    addStars(student.id, starsToAdd);
+                });
+                
+                inputGroup.appendChild(input);
+                inputGroup.appendChild(button);
+                addStarsCell.appendChild(inputGroup);
+                
+                // Append all cells to the row
+                row.appendChild(rankCell);
+                row.appendChild(nameCell);
+                row.appendChild(starsCell);
+                row.appendChild(addStarsCell);
+                
+                // Append row to the table body
+                leaderboardBody.appendChild(row);
+            });
+        }
+
+        // Update header statistics
+        function updateHeaderStats(students, className) {
+            // Update active class display
+            activeClassSpan.textContent = className.charAt(0).toUpperCase() + className.slice(1).replace('grade', 'Grade ');
+            
+            // Calculate total stars
+            const totalStars = students.reduce((total, student) => total + student.stars, 0);
+            totalStarsSpan.textContent = totalStars;
+            
+            // Get top student
+            const topStudent = students[0];
+            if (topStudent) {
+                topStudentSpan.textContent = `${topStudent.name} (${className.charAt(0).toUpperCase() + className.slice(1).replace('grade', 'Grade ')})`;
             }
         }
-        
-        // Add a function to edit student names
-        function editName(studentId) {
-            // Find the student by ID
-            const student = students.find(s => s.id === studentId);
-            if (student) {
-                // Prompt the user for a new name
-                const newName = prompt("Enter the new name for the student:", student.name);
-                if (newName && newName.trim() !== "") {
-                    // Update the student's name
-                    student.name = newName.trim();
 
-                    // Save the updated data
-                    saveData();
-
-                    // Re-render the leaderboard
-                    renderLeaderboard(currentTab);
+        // Add stars to a student
+        function addStars(studentId, stars) {
+            // Find the student in all classes
+            for (const className in studentsData) {
+                const student = studentsData[className].find(s => s.id === studentId);
+                if (student) {
+                    student.stars += stars;
+                    break;
                 }
             }
-        }
-
-        // Add a function to edit student names and gender
-        function editNameAndGender(studentId) {
-            // Find the student by ID
-            const student = students.find(s => s.id === studentId);
-            if (student) {
-                // Prompt the user for a new name
-                const newName = prompt("Enter the new name for the student:", student.name);
-                if (newName && newName.trim() !== "") {
-                    student.name = newName.trim();
-                }
-
-                // Prompt the user for a new gender
-                const newGender = prompt("Enter the gender (boy/girl):", student.gender);
-                if (newGender && (newGender.toLowerCase() === "boy" || newGender.toLowerCase() === "girl")) {
-                    student.gender = newGender.toLowerCase();
-                } else {
-                    alert("Invalid gender. Please enter 'boy' or 'girl'.");
-                }
-
-                // Save the updated data
-                saveData();
-
-                // Re-render the leaderboard
-                renderLeaderboard(currentTab);
-            }
-        }
-        
-        // Save data to localStorage
-        function saveData() {
-            // Save the full students array to localStorage
-            localStorage.setItem('studentLeaderboardData', JSON.stringify(students));
+            
+            // Re-render the current leaderboard
+            renderLeaderboard(currentClass);
             
             // Show save notice
+            showSaveNotice();
+        }
+
+        // Show save notification
+        function showSaveNotice() {
             saveNotice.style.display = 'block';
             setTimeout(() => {
                 saveNotice.style.display = 'none';
             }, 3000);
         }
-        
-        // Reset all data
-        function resetData() {
-            if (confirm("Are you sure you want to reset all star points? This cannot be undone.")) {
-                // Reset all star points to 0 for every student
-                students.forEach(student => {
-                    student.subjects = {
-                        english: 0,
-                        filipino: 0,
-                        math: 0,
-                        science: 0,
-                        epp: 0,
-                        ap: 0,
-                        mapeh: 0,
-                        gmrc: 0
-                    };
-                });
 
-                // Save reset data
-                saveData();
-
-                // Re-render the leaderboard
-                renderLeaderboard(currentTab);
-            }
+        // Login with Google
+        function loginWithGoogle() {
+            // Simulate login process
+            isLoggedIn = true;
+            
+            // Hide auth section
+            authSection.style.display = 'none';
+            
+            // Show user info
+            userInfo.style.display = 'flex';
+            
+            // Set user info
+            userName.textContent = "Teacher Smith";
+            userAvatar.textContent = "T";
+            
+            // Show a login success message
+            const notice = document.createElement('div');
+            notice.className = 'save-notice';
+            notice.style.position = 'fixed';
+            notice.style.top = '20px';
+            notice.style.left = '50%';
+            notice.style.transform = 'translateX(-50%)';
+            notice.innerHTML = '<i class="fas fa-check-circle"></i> Successfully logged in!';
+            document.body.appendChild(notice);
+            
+            setTimeout(() => {
+                notice.remove();
+            }, 3000);
         }
 
-        // Backup data function
-        function backupData() {
-            const data = localStorage.getItem('studentLeaderboardData');
-            const blob = new Blob([data], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'studentLeaderboardBackup.json';
-            a.click();
-            URL.revokeObjectURL(url);
+        // Logout
+        function logout() {
+            isLoggedIn = false;
+            
+            // Show auth section
+            authSection.style.display = 'block';
+            
+            // Hide user info
+            userInfo.style.display = 'none';
+            
+            // Show a logout message
+            const notice = document.createElement('div');
+            notice.className = 'save-notice';
+            notice.style.position = 'fixed';
+            notice.style.top = '20px';
+            notice.style.left = '50%';
+            notice.style.transform = 'translateX(-50%)';
+            notice.style.background = '#3498db';
+            notice.innerHTML = '<i class="fas fa-info-circle"></i> Successfully logged out!';
+            document.body.appendChild(notice);
+            
+            setTimeout(() => {
+                notice.remove();
+            }, 3000);
         }
-        
-        // Initialize when the page loads
-        window.onload = initLeaderboard;
 
-        // For manual data restoration (uncomment to use)
-        // const backupData = `PASTE_BACKUP_JSON_HERE`; // Replace with the JSON backup
-        // localStorage.setItem('studentLeaderboardData', backupData);
-        // location.reload();
-
-        document.addEventListener('input', () => {
-            saveData();
-        });
+        // Initialize the application when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
